@@ -9,10 +9,8 @@ class TranslateText extends StatefulWidget {
 }
 
 class _TranslateTextState extends State<TranslateText> {
-
   final textTranController = TextEditingController();
   bool pressed = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -32,53 +30,37 @@ class _TranslateTextState extends State<TranslateText> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Expanded(
-                          // child: InkWell(
-                          //   onTap: () {},
-                          //   child: Container(
-                          //     width: double.infinity,
-                          //     padding:
-                          //     EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-                          //     child: Text(
-                          //       "Enter text",
-                          //       style: TextStyle(
-                          //         color: Colors.grey[700],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
                           child: Padding(
-                        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+                        padding:
+                            EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
                         child: TextField(
                           controller: textTranController,
                           decoration: InputDecoration(
-                              border: InputBorder.none, hintText: 'กรอกข้อความ'),
+                              border: InputBorder.none,
+                              hintText: 'กรอกข้อความ'),
                         ),
-                      )
-                      ),
-                      
+                      )),
                     ],
-                    
                   ),
                 ),
-                
               ],
             ),
           ),
           OutlineButton(
-            onPressed: () => { 
+            onPressed: () => {
               // ListTranslate(title:textTranController.text)
               setState(() {
                 pressed = true;
               })
-              
             },
             textColor: Colors.pink,
-            borderSide: BorderSide(color: Colors.pink, width: 1.0, style: BorderStyle.solid),
+            borderSide: BorderSide(
+                color: Colors.pink, width: 1.0, style: BorderStyle.solid),
             child: Text(
               'แปล',
             ),
           ),
-          pressed?ListTranslate(title:textTranController.text):Text("")
+          pressed ? ListTranslate(title: textTranController.text) : Text("")
         ],
       ),
     );
